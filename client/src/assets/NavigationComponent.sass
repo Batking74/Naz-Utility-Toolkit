@@ -1,0 +1,72 @@
+$first-color: #2e2e41
+$second-color: #5b85ff
+$third-color: #434354
+$text-color: #fff
+$box-shadow: 0 5px 25px rgb(2, 2, 2, 0.1)
+$text-shadow: 0 5px 25px rgb(2, 2, 2, 0.1)
+
+body
+    background: #000
+.main-container
+    transition: 0.5s ease
+    .tab-nav-bar
+        position: relative
+        top: 20px
+        .tab-navigation
+            position: relative
+            display: flex
+            justify-content: center
+            align-items: center
+            max-width: fit-content
+            margin: 0 auto
+            .tab-menu
+                color: $text-color
+                list-style: none
+                background: $third-color
+                max-width: 800px
+                padding: 10px
+                white-space: nowrap
+                border-bottom: 1px solid $third-color
+                border-radius: 50px
+                box-shadow: $box-shadow
+                overflow-x: auto
+                user-select: none
+                &::-webkit-scrollbar
+                    display: none
+                .tab-btn
+                    display: inline-block
+                    font-size: 1em
+                    font-weight: 400
+                    margin: 0 2px
+                    padding: 10px 20px
+                    border-radius: 30px
+                    cursor: pointer
+                    user-select: none
+                    transition: 0.3s ease
+                    a
+                        color: $text-color
+                        text-decoration: none
+                    &:hover
+                        background: $first-color
+                    &.active
+                        background: $second-color
+
+.left-btn, .right-btn
+    position: absolute
+    color: $text-color
+    font-size: 1.8em
+    padding: 10px
+    cursor: pointer
+
+.left-btn
+    left: 0
+    background: linear-gradient(to left, transparent, $first-color 80%)
+    border-top-left-radius: 30px
+    border-bottom-left-radius: 30px
+    display: none
+
+.right-btn
+    right: 0
+    background: linear-gradient(to right, transparent, $first-color 80%)
+    border-top-right-radius: 30px
+    border-bottom-right-radius: 30px

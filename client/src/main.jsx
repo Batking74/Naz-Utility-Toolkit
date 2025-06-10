@@ -1,10 +1,57 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+// Importing Modules/Packages
+import PasswordGeneratorProjectPage from './Pages/PasswordGeneratorProjectPage.jsx';
+import DigitalCalculatorProjectPage from './Pages/DigitalCalculatorProjectPage.jsx';
+import TalkingComputerProjectPage from './Pages/TalkingComputerProjectPage.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './assets/output/main.min.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+
+// Creating React Routes
+const router = createBrowserRouter([{
+  path: '/',
+  element: <App />,
+  children: [
+    {
+      index: true,
+      element: <TalkingComputerProjectPage />
+    },
+    {
+      path: '/PasswordGenerator',
+      element: <PasswordGeneratorProjectPage />
+    },
+    {
+      path: '/DigitalCalculator',
+      element: <DigitalCalculatorProjectPage />
+    },
+    // {
+    //   path: '/QR-Code-Generator',
+    //   element: <QRCodeGeneratorProjectPage />
+    // },
+    // {
+    //   path: '/New-Year-Countdown-Timer',
+    //   element: <NewYearsCountdownProjectPage />
+    // },
+    // {
+    //   path: '/CurrencyConverter',
+    //   element: <CurrencyConverterProjectPage />
+    // },
+    // {
+    //   path: '/QuoteGenerator',
+    //   element: <QuoteGeneratorProjectPage />
+    // },
+    // {
+    //   path: '/MemeGenerator',
+    //   element: <MemeGeneratorProjectPage />
+    // },
+    // {
+    //   path: '/ImageSearch',
+    //   element: <ImageSearchProjectPage />
+    // }
+  ]
+}]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />
+);

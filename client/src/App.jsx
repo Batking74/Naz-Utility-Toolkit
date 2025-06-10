@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Importing Modules/Packages
+import NavigationComponent from './components/NavigationComponent';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Whenever user goes to another route scroll to the top of the page
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
+const variants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
+
+const getBackgroundStyle = (path) => {
+  switch (path) {
+    case '/': return { backgroundImage: 'linear-gradient(to top, red, black)' };
+    case '/PasswordGenerator': return { backgroundColor: '#f9fbfd' };
+    case '/DigitalCalculator': return { backgroundImage: 'linear-gradient(to right, red, blue)' };
+    default: return { backgroundColor: '#0a0a23' };
+  }
+};
+
+// Returning Components/JSX
+export default function App() {
+  const location = useLocation();
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ScrollToTop />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname} // use directly
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={variants}
+          transition={{ duration: 0.4 }}
+          style={{
+            ...getBackgroundStyle(location.pathname),
+            minHeight: '100vh',
+          }}
+        >
+          <NavigationComponent />
+          <Outlet />
+        </motion.div>
+      </AnimatePresence>
     </>
-  )
+  );
 }
-
-export default App

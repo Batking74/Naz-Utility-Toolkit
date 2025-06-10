@@ -1,0 +1,49 @@
+@use './Mixins'
+$center: 40px
+$text-size: 1.2rem
+
+.calculator-grid
+    margin-top: $center
+    display: grid
+    justify-content: center
+    align-content: center
+    grid-template-columns: repeat(5, 80px)
+    grid-template-rows: minmax(120px, auto) repeat(7, 65px)
+    @include Mixins.mediaQuery(600px)
+        margin-top: calc(#{ $center } + 40px)
+        grid-template-columns: repeat(5, 60px)
+        grid-template-rows: minmax(120px, auto) repeat(7, 55px)
+    @include Mixins.mediaQuery(360px)
+        margin-top: calc(#{ $center } + 50px)
+        grid-template-columns: repeat(5, 45px)
+        grid-template-rows: minmax(120px, auto) repeat(7, 40px)
+    & > button
+        cursor: pointer
+        font-size: $text-size
+        border: 1px solid white
+        outline: none
+        background: #7aec2eb9
+        @include Mixins.mediaQuery(600px)
+            font-size: 0.9rem
+        @include Mixins.mediaQuery(360px)
+            font-size: 0.7rem
+    .output
+        grid-column: 1 / -1
+        background: rgba(0,0,0,.75)
+        display: flex
+        align-items: flex-end
+        justify-content: space-around
+        flex-direction: column
+        padding: 10px
+        word-wrap: break-word
+        word-break: break-all
+        p
+            margin: 2px 3px 2px 3px
+    .span-two
+        grid-column: span 2
+    button:active
+        background: #00000095
+
+.output .hex-operand, .binary-operand, .decimal-operand
+    color: white
+    font-size: $text-size

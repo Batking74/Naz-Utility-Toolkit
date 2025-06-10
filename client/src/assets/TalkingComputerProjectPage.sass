@@ -1,0 +1,176 @@
+
+@use './Mixins'
+$breakpoint1: 830px
+$breakpoint2: 550px
+
+.TalkingComputer-Main-Container
+    display: flex
+    justify-content: center
+    align-items: center
+    section
+        background: linear-gradient(90deg, #0e0505, #730808ca)
+        position: relative
+        width: 900px
+        display: flex
+        justify-content: center
+        align-items: center
+        align-self: center
+        flex-direction: column
+        height: fit-content
+        padding-bottom: 20px
+        margin: 30px
+        border-radius: 10px
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25)
+        @include Mixins.mediaQuery($breakpoint1)
+            flex-direction: row-reverse
+            width: fit-content
+            padding: 0 30px
+        @include Mixins.mediaQuery($breakpoint2)
+            background: none
+            flex-direction: column
+            width: 100%
+            padding: 20px 0
+    .line
+        background: #cacaca
+        width: 90%
+        height: 1px
+        @include Mixins.mediaQuery($breakpoint1)
+            width: 1px
+            height: 380px
+            margin-right: 20px
+        @include Mixins.mediaQuery($breakpoint2)
+            width: 90%
+            height: 1px
+            margin-right: 0
+    .text-container
+        width: 100%
+        padding: 35px 30px
+        textarea
+            width: 100%
+            resize: none
+            border: none
+            outline: none
+            background: #0000007d
+            color: #d9b902ec
+            font-size: 1em
+            line-height: 28px
+            padding: 5px
+            &::-webkit-scrollbar
+                background: linear-gradient(black, red)
+                width: 10px
+                border-radius: 2em
+            &::-webkit-scrollbar-thumb
+                background: linear-gradient(gold, orange)
+                border-radius: 2em
+            &::-webkit-scrollbar-thumb:hover
+                cursor: pointer
+                background: linear-gradient(90deg, #cee405a8, #ff9900cb)
+            &:disabled
+                background: linear-gradient(#00000090, #61000097, #00000090)
+                color: #d9b9026c
+    .count-items
+        position: relative
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 35px 110px
+        @include Mixins.mediaQuery($breakpoint1)
+            width: 200px
+            align-items: baseline
+            flex-direction: column
+            padding: 0
+        @include Mixins.mediaQuery($breakpoint2)
+            width: 100%
+            display: grid
+            grid-template: repeat(2, 100px) / repeat(2, 1fr)
+            align-items: center
+            padding: 35px 50px
+        .item
+            position: relative
+            @include Mixins.mediaQuery($breakpoint1)
+                padding: 10px 0
+                &:not(:first-child)::before
+                    display: none
+            @include Mixins.mediaQuery($breakpoint2)
+                &:not(:first-child)::before
+                    display: block
+                &:first-child::before
+                    content: ''
+                    position: absolute
+                    background: #cacaca
+                    width: 1px
+                    height: 100%
+                    left: -25px
+            &:not(:first-child)::before
+                content: ''
+                position: absolute
+                background: #cacaca
+                width: 1px
+                height: 100%
+                left: -25px
+            span
+                color: #c6a800b7
+                font-size: 2.5em
+                font-weight: 700
+                @include Mixins.mediaQuery($breakpoint1)
+                    font-size: 2.2em
+                @include Mixins.mediaQuery($breakpoint2)
+                    font-size: 2em
+            p
+                color: #d1d1d1
+                font-size: 1em
+                text-transform: uppercase
+                font-weight: 400
+                letter-spacing: .5px
+                width: fit-content
+                @include Mixins.mediaQuery($breakpoint1)
+                    font-size: .9em
+                    font-weight: 500
+                @include Mixins.mediaQuery($breakpoint2)
+                    font-size: .7em
+                @include Mixins.mediaQuery($breakpoint2)
+    .controls
+        display: flex
+        column-gap: 20px
+        width: fit-content
+        justify-content: center
+        align-items: center
+        @include Mixins.mediaQuery($breakpoint1)
+            flex-direction: column-reverse
+            align-items: center
+        @include Mixins.mediaQuery($breakpoint2)
+            flex-direction: row
+            padding: 0 30px
+            column-gap: 5px
+            input, label
+                display: none
+        @include Mixins.mediaQuery(460px)
+            width: 100%
+            display: grid
+            padding: 0 70px
+            grid-template: repeat(2, 50px) / repeat(2, 1fr)
+        label
+            color: #cacaca
+        input
+            background-color: #d9b902ec
+        button
+            background-color: #d9b902ec
+            font-size: 16px
+            border-radius: 30px
+            padding: 5px
+            width: 6vw
+            min-width: 70px
+            transition: 1s
+            @include Mixins.mediaQuery($breakpoint1)
+                font-size: 17px
+                margin-bottom: 30px
+                width: 100px
+            @include Mixins.mediaQuery($breakpoint2)
+                width: 90px
+                font-size: 13.5px
+            &:hover
+                transform: scale(1.1)
+                cursor: pointer
+                background: #000000ac
+                color: #ffd700
