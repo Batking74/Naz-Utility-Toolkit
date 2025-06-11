@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './assets/output/main.min.css';
+import QRCodeGeneratorPage from './Pages/QR-Code-Generator-Page.jsx';
 
 
 // Creating React Routes
@@ -25,10 +26,10 @@ const router = createBrowserRouter([{
       path: '/DigitalCalculator',
       element: <DigitalCalculatorProjectPage />
     },
-    // {
-    //   path: '/QR-Code-Generator',
-    //   element: <QRCodeGeneratorProjectPage />
-    // },
+    {
+      path: '/QR-Code-Generator',
+      element: <QRCodeGeneratorPage />
+    },
     // {
     //   path: '/New-Year-Countdown-Timer',
     //   element: <NewYearsCountdownProjectPage />

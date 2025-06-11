@@ -23,7 +23,10 @@ const getBackgroundStyle = (path) => {
   switch (path) {
     case '/': return { backgroundImage: 'linear-gradient(to top, red, black)' };
     case '/PasswordGenerator': return { backgroundColor: '#f9fbfd' };
-    case '/DigitalCalculator': return { backgroundImage: 'linear-gradient(to right, red, blue)' };
+    case '/QR-Code-Generator': return { backgroundImage: 'linear-gradient(to top, red, yellow)' };
+    // case '/New-Year-Countdown-Timer': return { backgroundImage: 'linear-gradient(to right, red, blue)' };
+    // case '/CurrencyConverter': return { backgroundImage: 'linear-gradient(to right, red, blue)' };
+    // case '/DigitalCalculator': return { backgroundImage: 'linear-gradient(to right, red, blue)' };
     default: return { backgroundColor: '#0a0a23' };
   }
 };
