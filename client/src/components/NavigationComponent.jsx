@@ -32,12 +32,10 @@ export default function NavigationComponent() {
             <li className="tab-btn active"><Link to='/'>Talking Computer 2.0</Link></li>
             <li className="tab-btn"><Link to='/PasswordGenerator'>Password Generator</Link></li>
             <li className="tab-btn"><Link to='/QR-Code-Generator'>QR Code Generator</Link></li>
+            <li className="tab-btn"><Link to='/New-Year-Countdown-Timer'>New Year Countdown Timer</Link></li>
             <li className="tab-btn"><Link to='/DigitalCalculator'>Digital Calculator Project</Link></li>
             {/* <li className="tab-btn"><Link to='/AgeCalculator'>Age Calculator</Link></li>
-            <li className="tab-btn"><Link to='/New-Year-Countdown-Timer'>New Year Countdown Timer</Link></li>
             <li className="tab-btn"><Link to='/CurrencyConverter'>Currency Converter</Link></li>
-            <li className="tab-btn"><Link to='/QuoteGenerator'>Quote Generator</Link></li>
-            <li className="tab-btn"><Link to='/MemeGenerator'>Meme Generator</Link></li>
             <li className="tab-btn"><Link to='/ImageSearch'>Image Search Engine</Link></li> */}
           </ul>
           <i onClick={rightBtn} className="uis uis-angle-right right-btn"></i>

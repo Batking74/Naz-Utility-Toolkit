@@ -1,12 +1,13 @@
 // Importing Modules/Packages
 import PasswordGeneratorProjectPage from './Pages/PasswordGeneratorProjectPage.jsx';
 import DigitalCalculatorProjectPage from './Pages/DigitalCalculatorProjectPage.jsx';
+import NewYearsCountdownProjectPage from './Pages/NewYearsCountdownProjectPage.jsx';
 import TalkingComputerProjectPage from './Pages/TalkingComputerProjectPage.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import QRCodeGeneratorPage from './Pages/QR-Code-Generator-Page.jsx';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './assets/output/main.min.css';
-import QRCodeGeneratorPage from './Pages/QR-Code-Generator-Page.jsx';
 
 
 // Creating React Routes
@@ -30,21 +31,13 @@ const router = createBrowserRouter([{
       path: '/QR-Code-Generator',
       element: <QRCodeGeneratorPage />
     },
-    // {
-    //   path: '/New-Year-Countdown-Timer',
-    //   element: <NewYearsCountdownProjectPage />
-    // },
+    {
+      path: '/New-Year-Countdown-Timer',
+      element: <NewYearsCountdownProjectPage />
+    },
     // {
     //   path: '/CurrencyConverter',
     //   element: <CurrencyConverterProjectPage />
-    // },
-    // {
-    //   path: '/QuoteGenerator',
-    //   element: <QuoteGeneratorProjectPage />
-    // },
-    // {
-    //   path: '/MemeGenerator',
-    //   element: <MemeGeneratorProjectPage />
     // },
     // {
     //   path: '/ImageSearch',

@@ -1,0 +1,48 @@
+@use './Mixins'
+$breakpoint: 800px
+$breakpoint2: 500px
+.NewYearsCountdown-Main-Container
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    text-align: center
+    row-gap: 40px
+    height: 50vh
+    @include Mixins.mediaQuery($breakpoint2)
+        height: 70vh
+        row-gap: 100px
+    h1
+        font-weight: normal
+        font-size: 4rem
+        @include Mixins.mediaQuery($breakpoint)
+            font-size: 3rem
+        @include Mixins.mediaQuery($breakpoint2)
+            font-size: 2rem
+    .countdown
+        display: flex
+        transform: scale(2)
+        @include Mixins.mediaQuery($breakpoint2)
+            flex-direction: column
+        .time
+            display: flex
+            flex-direction: column
+            align-items: center
+            margin: 15px
+            @include Mixins.mediaQuery($breakpoint)
+                margin: 5px
+            h2
+                font-weight: bold
+                font-size: 2rem
+                line-height: 1
+                margin: 0 0 5px
+                @include Mixins.mediaQuery($breakpoint)
+                    font-size: 1rem
+                @include Mixins.mediaQuery($breakpoint2)
+                    font-size: 0.9rem
+            small
+                font-size: 10px
+                @include Mixins.mediaQuery($breakpoint)
+                    font-size: 8px
+                @include Mixins.mediaQuery($breakpoint2)
+                    font-size: 7px
